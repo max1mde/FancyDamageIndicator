@@ -14,6 +14,8 @@ public class Config {
     private HealthMode healthMode;
     private String heartCharacter;
     private String damageString;
+    private String regenString;
+    private Types type;
 
     private boolean isDamageSizeModifier;
     private float damageSizeModifier;
@@ -29,6 +31,8 @@ public class Config {
         setIfNot("HealthMode", HealthMode.NUMBER.name());
         setIfNot("HeartCharacter", "❤");
         setIfNot("DamageString", "<gradient:#FF4700:#FF0070>%damage% ❤</gradient>");
+        setIfNot("RegenString", "<gradient:#7DFF00:#00D45C>%regen% ❤</gradient>");
+        setIfNot("Type", Types.ALL.name());
         setIfNot("IsDamageSizeModifier", true);
         setIfNot("DamageSizeModifier", 1.0f);
         setIfNot("Size", 1.0f);
@@ -43,6 +47,8 @@ public class Config {
         this.healthMode = HealthMode.valueOf(cfg.getString("HealthMode"));
         this.heartCharacter = cfg.getString("HeartCharacter");
         this.damageString = cfg.getString("DamageString");
+        this.regenString = cfg.getString("RegenString");
+        this.type = Types.valueOf(cfg.getString("Type"));
         this.isDamageSizeModifier = cfg.getBoolean("IsDamageSizeModifier");
         this.damageSizeModifier = (float) cfg.getDouble("DamageSizeModifier");
         this.size = (float) cfg.getDouble("Size");
@@ -83,6 +89,12 @@ public class Config {
 
     public Object getValue(String path) {
         return this.cfg.get(path);
+    }
+
+    public enum Types {
+        ONLY_REGEN,
+        ONLY_DAMAGE,
+        ALL
     }
 
 }
