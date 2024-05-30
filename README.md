@@ -8,10 +8,12 @@ Config
 HealthMode: NUMBER
 HeartCharacter: ❤
 DamageString: <gradient:#FF4700:#FF0070>%damage% ❤</gradient>
+RegenString: <gradient:#7DFF00:#00D45C>%regen% ❤</gradient>
+Type: ALL
 IsDamageSizeModifier: true
 DamageSizeModifier: 1.0
 Size: 1.0
-DurationSeconds: 1
+DurationSeconds: 8
 TextShadow: true
 AffectedEntities: ALL
 ```
