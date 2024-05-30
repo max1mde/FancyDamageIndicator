@@ -1,6 +1,8 @@
 Showcase Video  
 [![Watch the video](https://img.youtube.com/vi/7XsK_TypFbU/0.jpg)](https://www.youtube.com/watch?time_continue=18&v=7XsK_TypFbU&embeds_referring_euri=https%3A%2F%2Fwww.spigotmc.org%2F&source_ve_path=MzY4NDIsMzY4NDIsMzY4NDIsMjg2NjY&feature=emb_logo)
 
+Depends on: https://www.spigotmc.org/resources/115811/
+
 Config
 ```yml
 HealthMode: NUMBER
