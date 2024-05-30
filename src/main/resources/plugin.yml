@@ -1,0 +1,12 @@
+name: FancyDamageIndicator
+version: '${version}'
+main: com.maximde.damageindicator.DamageIndicator
+api-version: '1.19'
+author: MaximDe
+website: https://www.spigotmc.org/resources/115811/
+description: An animated and customizable damage indicator plugin
+depend:
+  - BetterChatBubbles
+
+commands:
+  fancydamage:
