@@ -24,7 +24,7 @@ public class Config {
     private int durationSeconds;
 
     private boolean textShadow;
-
+    private boolean sound;
     private AffectedEntities affectedEntities;
 
     public Config() {
@@ -36,6 +36,7 @@ public class Config {
         setIfNot("IsDamageSizeModifier", true);
         setIfNot("DamageSizeModifier", 1.0f);
         setIfNot("Size", 1.0f);
+        setIfNot("Sound", false);
         setIfNot("DurationSeconds", 1);
         setIfNot("TextShadow", true);
         setIfNot("AffectedEntities", AffectedEntities.ALL.name());
@@ -54,6 +55,7 @@ public class Config {
         this.size = (float) cfg.getDouble("Size");
         this.durationSeconds = cfg.getInt("DurationSeconds");
         this.textShadow = cfg.getBoolean("TextShadow");
+        this.sound = cfg.getBoolean("Sound");
         this.affectedEntities = AffectedEntities.valueOf(cfg.getString("AffectedEntities"));
     }
 

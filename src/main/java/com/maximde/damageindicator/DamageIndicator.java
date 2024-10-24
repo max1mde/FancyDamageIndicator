@@ -39,7 +39,7 @@ public final class DamageIndicator extends JavaPlugin implements Listener {
     @EventHandler
     public void onEntityRegem(EntityRegainHealthEvent event) {
         if(!(event.getEntity() instanceof LivingEntity)) return;
-
+        if(((LivingEntity) event.getEntity()).getHealth() >= ((LivingEntity) event.getEntity()).getMaxHealth()) return;
         if(config.getType() == Config.Types.ONLY_DAMAGE) return;
 
         if(config.getAffectedEntities() == Config.AffectedEntities.ONLY_PLAYERS) {
@@ -53,8 +53,8 @@ public final class DamageIndicator extends JavaPlugin implements Listener {
         ChatBubble chatBubble = new ChatBubble((LivingEntity) event.getEntity(), RenderMode.NEARBY);
         chatBubble.setDuration(config.getDurationSeconds());
         chatBubble.setShadow(config.isTextShadow());
-
-
+        chatBubble.setSoundIn(config.isSound());
+        chatBubble.setSoundOut(config.isSound());
         String damage;
         if (config.getHealthMode() == Config.HealthMode.NUMBER) {
             damage = String.valueOf((int) event.getAmount());
@@ -94,7 +94,8 @@ public final class DamageIndicator extends JavaPlugin implements Listener {
         ChatBubble chatBubble = new ChatBubble((LivingEntity) event.getEntity(), RenderMode.NEARBY);
         chatBubble.setDuration(config.getDurationSeconds());
         chatBubble.setShadow(config.isTextShadow());
-
+        chatBubble.setSoundIn(config.isSound());
+        chatBubble.setSoundOut(config.isSound());
 
         String damage;
         if (config.getHealthMode() == Config.HealthMode.NUMBER) {
