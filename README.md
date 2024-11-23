@@ -1,3 +1,5 @@
+<a href="https://discord.gg/2UTkYj26B4" target="_blank"><img src="https://img.shields.io/badge/Discord_Server-7289DA?style=flat&logo=discord&logoColor=white" alt="Join Discord Server" style="border-radius: 15px; height: 20px;"></a>
+
 Showcase Video  
 [![Watch the video](https://img.youtube.com/vi/7XsK_TypFbU/0.jpg)](https://www.youtube.com/watch?time_continue=18&v=7XsK_TypFbU&embeds_referring_euri=https%3A%2F%2Fwww.spigotmc.org%2F&source_ve_path=MzY4NDIsMzY4NDIsMzY4NDIsMjg2NjY&feature=emb_logo)
 
