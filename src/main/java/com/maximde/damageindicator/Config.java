@@ -5,6 +5,7 @@ import lombok.SneakyThrows;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.util.List;
 
 @Getter
 public class Config {
@@ -27,7 +28,10 @@ public class Config {
     private boolean sound;
     private AffectedEntities affectedEntities;
 
+    private List<String> mobBlacklist;
+
     public Config() {
+        setIfNot("MobBlacklist", List.of("ARMOR_STAND"));
         setIfNot("HealthMode", HealthMode.NUMBER.name());
         setIfNot("HeartCharacter", "❤");
         setIfNot("DamageString", "<gradient:#FF4700:#FF0070>%damage% ❤</gradient>");
@@ -45,6 +49,7 @@ public class Config {
     }
 
     private void initValues() {
+        this.mobBlacklist = cfg.getStringList("MobBlacklist");
         this.healthMode = HealthMode.valueOf(cfg.getString("HealthMode"));
         this.heartCharacter = cfg.getString("HeartCharacter");
         this.damageString = cfg.getString("DamageString");
@@ -99,4 +104,7 @@ public class Config {
         ALL
     }
 
+    public boolean isMobBlacklisted(String entityType) {
+        return mobBlacklist.contains(entityType);
+    }
 }

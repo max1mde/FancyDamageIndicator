@@ -38,9 +38,11 @@ public final class DamageIndicator extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onEntityRegem(EntityRegainHealthEvent event) {
-        if(!(event.getEntity() instanceof LivingEntity)) return;
+        if(!(event.getEntity() instanceof LivingEntity entity)) return;
         if(((LivingEntity) event.getEntity()).getHealth() >= ((LivingEntity) event.getEntity()).getMaxHealth()) return;
         if(config.getType() == Config.Types.ONLY_DAMAGE) return;
+
+        if (config.isMobBlacklisted(entity.getType().name())) return;
 
         if(config.getAffectedEntities() == Config.AffectedEntities.ONLY_PLAYERS) {
             if(!(event.getEntity() instanceof Player)) return;
@@ -79,9 +81,11 @@ public final class DamageIndicator extends JavaPlugin implements Listener {
 
     @EventHandler
     public void onEntityDamage(EntityDamageEvent event) {
-        if(!(event.getEntity() instanceof LivingEntity)) return;
+        if(!(event.getEntity() instanceof LivingEntity entity)) return;
 
         if(config.getType() == Config.Types.ONLY_REGEN) return;
+
+        if (config.isMobBlacklisted(entity.getType().name())) return;
 
         if(config.getAffectedEntities() == Config.AffectedEntities.ONLY_PLAYERS) {
             if(!(event.getEntity() instanceof Player)) return;
