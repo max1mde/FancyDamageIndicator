@@ -5,6 +5,7 @@ api-version: '1.19'
 author: MaximDe
 website: https://www.spigotmc.org/resources/115811/
 description: An animated and customizable damage indicator plugin
+folia-supported: true
 depend:
   - BetterChatBubbles
 
