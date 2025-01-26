@@ -8,6 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityRegainHealthEvent;
@@ -36,8 +37,9 @@ public final class DamageIndicator extends JavaPlugin implements Listener {
         });
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onEntityRegem(EntityRegainHealthEvent event) {
+        if (event.isCancelled()) return;
         if(!(event.getEntity() instanceof LivingEntity entity)) return;
         if(((LivingEntity) event.getEntity()).getHealth() >= ((LivingEntity) event.getEntity()).getMaxHealth()) return;
         if(config.getType() == Config.Types.ONLY_DAMAGE) return;
@@ -79,8 +81,9 @@ public final class DamageIndicator extends JavaPlugin implements Listener {
         bubbleAPI.bubbleGenerator().spawnBubble(chatBubble);
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onEntityDamage(EntityDamageEvent event) {
+        if (event.isCancelled()) return;
         if(!(event.getEntity() instanceof LivingEntity entity)) return;
 
         if(config.getType() == Config.Types.ONLY_REGEN) return;
